@@ -9,6 +9,14 @@ import Footer from "./components/Footer.jsx";
 function App() {
   return (
       <>
+          {/* Background Audio */}
+          <audio autoPlay loop volume="0.5">
+              <source src="/The%20Fantastic%20Four_%20First%20Steps%20%20Dreamer%20%20In%20Theaters%20Friday.mp3"
+                      type="audio/mpeg" />
+              Your browser does not support the audio element.
+          </audio>
+
+          {/* Main App Content */}
           <Navbar />
 
           <div className="min-h-screen bg-ff-dark text-[#00bfff]">
@@ -28,7 +36,9 @@ function App() {
           </div>
 
           <Footer />
-          <div>
+          <div className="text-center text-white py-4">
+
+              <p className="text-xs text-gray-400 text-center mb-2"><strong>Tip: </strong>Click logo at top left to activate audio</p>
               <img src={F4Logo} alt="F4" className={ "w-10 mx-auto rounded-lg"}/>
           </div>
       </>

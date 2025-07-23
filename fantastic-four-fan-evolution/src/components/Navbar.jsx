@@ -8,7 +8,7 @@ export default function Navbar() {
     return (
         <nav className="bg-ff-dark text-white fixed top-0 left-0 w-full z-50 shadow-md">
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-                <img src={F4Logo} alt="F④" className="w-10"/>
+                <a href=""><img src={F4Logo} alt="F④" className="w-10 rounded-lg cursor-pointer transition-transform ease-in-out"/></a>
                 <div className="hidden md:flex space-x-6 text-lg">
                     <a href="#team" className="hover:text-ff-blue transition">Team</a>
                     <a href="#extras" className="hover:text-ff-blue transition">Others</a>
