@@ -4,6 +4,10 @@ import MrFantastic from "../assets/images//mr-fantastic.jpeg"
 import InvisibleWoman from "../assets/images/sue-storm.jpeg"
 import HumanTorch from "../assets/images/human-torch.jpeg"
 import TheThing from "../assets/images/the-thing.jpeg"
+import Herbie from "../assets/images/herbie.jpeg"
+import Franklin from "../assets/images/franklin-richards.jpeg"
+import Galactus from "../assets/images/galactus-1.jpeg"
+import MoleMan from "../assets/images/mole-man.jpeg"
 
 const characters = [
     {
@@ -72,6 +76,49 @@ const characters = [
     },
 ]
 
+const extendedCharacters = [
+    {
+        name: "HERBIE",
+        alias: "Highly Engineered Robot Built for Interdimensional Exploration",
+        power: "AI intelligence, flight, utilities",
+        bio: "A loyal robotic assistant to the Fantastic Four, HERBIE offers tactical analysis and support.",
+        color: "bg-gray-500",
+        image: Herbie,
+        quote: "/audio/herbie.mp3",
+        powerLevels: { Strength: 2, Durability: 5, Intelligence: 9, Speed: 6, Special: 7 }
+    },
+    {
+        name: "Franklin Richards",
+        alias: "Reality Warper",
+        power: "Omniversal manipulation",
+        bio: "Son of Reed and Sue, Franklin is one of the most powerful mutants, capable of creating universes.",
+        color: "bg-cyan-700",
+        image: Franklin,
+        quote: "/audio/franklin.mp3",
+        powerLevels: { Strength: 7, Durability: 8, Intelligence: 8, Speed: 7, Special: 10 }
+    },
+    {
+        name: "Galactus",
+        alias: "The Devourer of Worlds",
+        power: "Cosmic energy absorption",
+        bio: "A cosmic being who consumes planets to sustain his existence. A force of nature.",
+        color: "bg-purple-900",
+        image: Galactus,
+        quote: "/audio/galactus.mp3",
+        powerLevels: { Strength: 10, Durability: 10, Intelligence: 9, Speed: 9, Special: 10 }
+    },
+    {
+        name: "Mole Man",
+        alias: "Harvey Elder",
+        power: "Underground dominion, control of monsters",
+        bio: "A misunderstood genius who rules the Subterraneans. Often at odds with the Fantastic Four.",
+        color: "bg-green-900",
+        image: MoleMan,
+        quote: "/audio/moleman.mp3",
+        powerLevels: { Strength: 4, Durability: 4, Intelligence: 6, Speed: 3, Special: 6 }
+    }
+];
+
 export default function CharacterCards() {
     const [selectedChar, setSelectedChar] = useState(null)
 
@@ -88,6 +135,27 @@ export default function CharacterCards() {
             <h2 className="text-4xl font-bold mb-8 text-ff-blue">Meet the Fantastic Four</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {characters.map((char, index) => (
+                    <div
+                        key={index}
+                        onClick={() => setSelectedChar(char)}
+                        className={`rounded-xl p-4 shadow-lg text-white cursor-pointer hover:scale-105 transition-transform duration-300 
+                        ${char.color}`}>
+                        <img
+                            src={char.image}
+                            alt={char.name}
+                            className="w-full h-150 object-cover rounded-md mb-4 bg-black"
+                        />
+                        <h3 className="text-2xl font-semibold">{char.name}</h3>
+                        <p className="text-sm italic mb-2">({char.alias})</p>
+                        <p className="text-base transition-all duration-300 ease-in-out hover:scale-105 hover:text-ff-flame">
+                            {char.power}</p>
+                    </div>
+                ))}
+            </div>
+
+            <h2 className="text-4xl font-bold mb-8 text-ff-blue mt-6">Other Characters</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {extendedCharacters.map((char, index) => (
                     <div
                         key={index}
                         onClick={() => setSelectedChar(char)}
@@ -133,15 +201,15 @@ export default function CharacterCards() {
                             <h3 className="text-lg font-semibold mb-2 text-ff-blue">Power Levels</h3>
                             {Object.entries(selectedChar.powerLevels).map(([trait, value], i) => (
                                 <div key={i} className="mb-2 text-left"
-                                     style={{ // Delay each bar
-                                    width: `${value * 10}%`,
-                                    transitionDelay: `${i * 100}ms`,
-                                }}>
+                                     style={{ width: `${value * 10}%`,
+                                         transitionDelay: `${i * 100}ms`,
+                                     }}>
                                     <label className="capitalize">{trait}</label>
                                     <div className="w-full bg-gray-700 h-4 rounded-full overflow-hidden">
                                         <div
                                             className="bg-ff-flame h-full rounded-full transition-all duration-700 ease-out"
-                                            style={{ width: `${value * 10}%` }}
+                                            style={{ width: `${value * 10}%`,
+                                            }}
                                         />
                                     </div>
                                 </div>
