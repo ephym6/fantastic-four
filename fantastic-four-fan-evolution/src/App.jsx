@@ -5,16 +5,20 @@ import MarvelF4 from './assets/images/marvel-first-steps.jpeg'
 import F4Logo from './assets/images/4-logo-white.jpeg'
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import AudioController from "./components/AudioController.jsx";
 
 function App() {
   return (
       <>
           {/* Background Audio */}
+          {/*
           <audio autoPlay loop volume="0.5">
               <source src="/The%20Fantastic%20Four_%20First%20Steps%20%20Dreamer%20%20In%20Theaters%20Friday.mp3"
                       type="audio/mpeg" />
               Your browser does not support the audio element.
           </audio>
+          */}
+          <AudioController />
 
           {/* Main App Content */}
           <Navbar />
