@@ -27,7 +27,12 @@ const Countdown = () => {
 
     return (
         <div className="text-3xl font-bold text-center mt-10 text-blue-500">
-            {timeLeft}
+            <p className="mb-2 text-blue-700">Dive into the fantastic world this Friday</p>
+            <div className="border-4 border-blue-500 rounded-xl p-4">
+                <p className="mb-2 text-blue-300">Countdown:</p>
+                {timeLeft}
+            </div>
+
         </div>
     )
 }
