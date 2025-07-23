@@ -12,7 +12,7 @@ export default function Navbar() {
                 <div className="hidden md:flex space-x-6 text-lg">
                     <a href="#team" className="hover:text-ff-blue transition">Team</a>
                     <a href="#extras" className="hover:text-ff-blue transition">Others</a>
-                    <a href="#about" className="hover:text-ff-blue transition">About</a>
+                    <a href="#footer" className="hover:text-ff-blue transition">About</a>
                 </div>
 
                 <button
