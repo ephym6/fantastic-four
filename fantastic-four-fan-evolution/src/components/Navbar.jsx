@@ -1,5 +1,6 @@
 import {useState } from "react";
 import F4Logo from '../assets/images/4-logo-blue.jpeg';
+import CharacterCards from "./CharacterCards.jsx";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
