@@ -40,7 +40,7 @@ body {
   padding: 2rem;
   background:
           linear-gradient(160deg, #0B1B30 0%, #0A5BD7 100%),
-          url('./assets/react.svg') no-repeat center center fixed;
+          url('../public/4-logo-blue.jpeg') no-repeat center center fixed;
   background-size: cover;
 }
 
