@@ -1,9 +1,9 @@
 import {useState } from 'react'
 
-import MrFantastic from "../assets/mr-fantastic.jpeg"
-import InvisibleWoman from "../assets/sue-storm.jpeg"
-import HumanTorch from "../assets/human-torch.jpeg"
-import TheThing from "../assets/the-thing.jpeg"
+import MrFantastic from "../assets/images//mr-fantastic.jpeg"
+import InvisibleWoman from "../assets/images/sue-storm.jpeg"
+import HumanTorch from "../assets/images/human-torch.jpeg"
+import TheThing from "../assets/images/the-thing.jpeg"
 
 const characters = [
     {
