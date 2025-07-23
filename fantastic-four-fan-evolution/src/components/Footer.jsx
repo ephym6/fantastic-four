@@ -1,3 +1,5 @@
+import { FaGithub } from "react-icons/fa";
+
 export default function Footer() {
     return (
         <footer id="footer" className="bg-ff-dark text-white mt-20 py-6 px-4 text-center bottom-0">
@@ -8,6 +10,15 @@ export default function Footer() {
                 <p className="text-xs mt-2 text-gray-400">
                     This project is built by a fan with love and excitement for <span className="text-ff-flame font-semibold">The Fantastic Four: First Steps</span>.
                 </p>
+                <a
+                    href="https://github.com/ephym6/fantastic-four"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition duration-300"
+                >
+                    <FaGithub size={24} />
+                    View on GitHub
+                </a>
                 <div className="mt-4 flex justify-center space-x-4 text-sm text-gray-400">
                     <a href="#team" className="hover:text-ff-blue- transition">Team</a>
                     <a href="#extras" className="hover:text-ff-blue transition">Others</a>
