@@ -1,5 +1,6 @@
 import './App.css'
 import Countdown from "./components/Countdown.jsx";
+import CharacterCards from "./components/CharacterCards.jsx";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <div className="flex justify-center">
               <Countdown />
           </div>
+
+          <CharacterCards />
       </div>
   )
 }
