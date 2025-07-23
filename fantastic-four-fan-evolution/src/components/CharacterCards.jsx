@@ -1,4 +1,4 @@
-import {useState } from 'react'
+import {useEffect, useState} from 'react'
 
 import MrFantastic from "../assets/images//mr-fantastic.jpeg"
 import InvisibleWoman from "../assets/images/sue-storm.jpeg"
@@ -13,6 +13,13 @@ const characters = [
         bio: "A brilliant scientist and leader of the Fantastic Four, Reed can stretch his body into any shape imaginable.",
         color: "bg-blue-700",
         image: MrFantastic,
+        quote: "https://example.com/mr-fantastic-quote.mp3",
+        powerLevels: {
+            strength: 4,
+            intelligence: 10,
+            speed: 6,
+            durability: 5,
+        },
     },
     {
         name: "Invisible Woman",
@@ -21,6 +28,13 @@ const characters = [
         bio: "Sue can render herself invisible and generate powerful force fields. She's both powerful and compassionate.",
         color: "bg-indigo-600",
         image: InvisibleWoman,
+        quote: "https://example.com/mr-fantastic-quote.mp3",
+        powerLevels: {
+            strength: 4,
+            intelligence: 10,
+            speed: 6,
+            durability: 5,
+        },
     },
     {
         name: "Human Torch",
@@ -29,6 +43,13 @@ const characters = [
         bio: "Johnny can engulf his body in flames, fly, and hurl fireballs. He's the team's fiery daredevil.",
         color: "bg-orange-500",
         image: HumanTorch,
+        quote: "https://example.com/mr-fantastic-quote.mp3",
+        powerLevels: {
+            strength: 4,
+            intelligence: 10,
+            speed: 6,
+            durability: 5,
+        },
     },
     {
         name: "The Thing",
@@ -37,11 +58,26 @@ const characters = [
         bio: "Ben's rocky appearance hides his heart of gold. He's immensely strong and the team's brawler.",
         color: "bg-yellow-600",
         image: TheThing,
+        quote: "https://example.com/mr-fantastic-quote.mp3",
+        powerLevels: {
+            strength: 4,
+            intelligence: 10,
+            speed: 6,
+            durability: 5,
+        },
     },
 ]
 
 export default function CharacterCards() {
     const [selectedChar, setSelectedChar] = useState(null)
+
+    // Autoplay voice player when modal opens
+    useEffect(() => {
+        if (selectedChar) {
+            const audio = new Audio(selectedChar.quote)
+            audio.play()
+        }
+    }, [selectedChar])
 
     return (
         <div className="py-10 px-4 text-center">
@@ -68,7 +104,7 @@ export default function CharacterCards() {
 
             {/* Modal */}
             {selectedChar && (
-                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black bg-opacity-70 z-50 overflow-y-auto py-10 px-4 flex justify-center items-start">
                     <div className="bg-ff-dark text-white p-6 rounded-xl shadow-2xl max-w-md w-[90%] relative">
                         <button
                             onClick={() => setSelectedChar(null)}
@@ -84,6 +120,25 @@ export default function CharacterCards() {
                         <h2 className="text-3xl font-bold mb-2">{selectedChar.name}</h2>
                         <p className="text-lg italic text-gray-300 mb-1">({selectedChar.alias})</p>
                         <p className="mb-4">{selectedChar.bio}</p>
+                        <audio controls className="mb-4 w-full">
+                            <source src={selectedChar.quote} type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                        {/* Power Level Meters */}
+                        <div className="mt-4">
+                            <h3 className="text-lg font-semibold mb-2 text-ff-blue">Power Levels</h3>
+                            {Object.entries(selectedChar.powerLevels).map(([trait, value], i) => (
+                                <div key={i} className="mb-2 text-left">
+                                    <label className="capitalize">{trait}</label>
+                                    <div className="w-full bg-gray-700 h-4 rounded-full overflow-hidden">
+                                        <div
+                                            className="bg-ff-flame h-full rounded-full transition-all duration-300"
+                                            style={{ width: `${value * 10}%` }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                         <p className="text-ff-flame font-semibold">Power: {selectedChar.power}</p>
                     </div>
                 </div>
