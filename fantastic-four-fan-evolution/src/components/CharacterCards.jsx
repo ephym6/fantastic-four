@@ -13,12 +13,13 @@ const characters = [
         bio: "A brilliant scientist and leader of the Fantastic Four, Reed can stretch his body into any shape imaginable.",
         color: "bg-blue-700",
         image: MrFantastic,
-        quote: "https://example.com/mr-fantastic-quote.mp3",
+        quote: "Let's solve this with science.",
         powerLevels: {
-            strength: 4,
-            intelligence: 10,
-            speed: 6,
-            durability: 5,
+            Strength: 4,
+            Durability: 5,
+            Intelligence: 10,
+            Speed: 5,
+            Special: 8  // Elastic body + high problem-solving skills
         },
     },
     {
@@ -28,12 +29,13 @@ const characters = [
         bio: "Sue can render herself invisible and generate powerful force fields. She's both powerful and compassionate.",
         color: "bg-indigo-600",
         image: InvisibleWoman,
-        quote: "https://example.com/mr-fantastic-quote.mp3",
+        quote: "You won’t see me coming.",
         powerLevels: {
-            strength: 4,
-            intelligence: 10,
-            speed: 6,
-            durability: 5,
+            Strength: 3,
+            Durability: 7,
+            Intelligence: 7,
+            Speed: 5,
+            Special: 10  // Force fields, invisibility
         },
     },
     {
@@ -43,12 +45,13 @@ const characters = [
         bio: "Johnny can engulf his body in flames, fly, and hurl fireballs. He's the team's fiery daredevil.",
         color: "bg-orange-500",
         image: HumanTorch,
-        quote: "https://example.com/mr-fantastic-quote.mp3",
+        quote: "Flame on!",
         powerLevels: {
-            strength: 4,
-            intelligence: 10,
-            speed: 6,
-            durability: 5,
+            Strength: 5,
+            Durability: 6,
+            Intelligence: 4,
+            Speed: 7,
+            Special: 9  // Flight, fireballs, nova flame
         },
     },
     {
@@ -58,12 +61,13 @@ const characters = [
         bio: "Ben's rocky appearance hides his heart of gold. He's immensely strong and the team's brawler.",
         color: "bg-yellow-600",
         image: TheThing,
-        quote: "https://example.com/mr-fantastic-quote.mp3",
+        quote: "It's clobberin’ time!",
         powerLevels: {
-            strength: 4,
-            intelligence: 10,
-            speed: 6,
-            durability: 5,
+            Strength: 10,
+            Durability: 9,
+            Intelligence: 4,
+            Speed: 3,
+            Special: 6  // Resistance, rock body
         },
     },
 ]
@@ -128,11 +132,15 @@ export default function CharacterCards() {
                         <div className="mt-4">
                             <h3 className="text-lg font-semibold mb-2 text-ff-blue">Power Levels</h3>
                             {Object.entries(selectedChar.powerLevels).map(([trait, value], i) => (
-                                <div key={i} className="mb-2 text-left">
+                                <div key={i} className="mb-2 text-left"
+                                     style={{ // Delay each bar
+                                    width: `${value * 10}%`,
+                                    transitionDelay: `${i * 100}ms`,
+                                }}>
                                     <label className="capitalize">{trait}</label>
                                     <div className="w-full bg-gray-700 h-4 rounded-full overflow-hidden">
                                         <div
-                                            className="bg-ff-flame h-full rounded-full transition-all duration-300"
+                                            className="bg-ff-flame h-full rounded-full transition-all duration-700 ease-out"
                                             style={{ width: `${value * 10}%` }}
                                         />
                                     </div>
