@@ -6,6 +6,7 @@ import F4Logo from './assets/images/4-logo-white.jpeg'
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import AudioController from "./components/AudioController.jsx";
+import AudioPlaylist from "./components/AudioPlaylist.jsx";
 
 function App() {
   return (
