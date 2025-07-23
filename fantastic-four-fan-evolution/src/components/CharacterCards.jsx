@@ -1,3 +1,5 @@
+
+
 import MrFantastic from "../assets/mr-fantastic.jpeg"
 import InvisibleWoman from "../assets/sue-storm.jpeg"
 import HumanTorch from "../assets/human-torch.jpeg"
@@ -48,7 +50,8 @@ export default function CharacterCards() {
                         />
                         <h3 className="text-2xl font-semibold">{char.name}</h3>
                         <p className="text-sm italic mb-2">({char.alias})</p>
-                        <p className="text-base">{char.power}</p>
+                        <p className="text-base transition-all duration-300 ease-in-out hover:scale-105 hover:text-ff-flame">
+                            {char.power}</p>
                     </div>
                 ))}
             </div>
